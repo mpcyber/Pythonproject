@@ -1,10 +1,3 @@
-# First, you need to install the necessary libraries if you don't have them.
-# You can do this by running these commands in your terminal:
-# pip install requests
-# pip install pandas
-# pip install matplotlib
-
-# Import the necessary libraries
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -102,13 +95,13 @@ def plot_tide_data(df, station_name="Tide Station"):
     ax.scatter(high_tides['t'], high_tides['v'], color='red', s=100, zorder=5, label='High Tide')
     for _, row in high_tides.iterrows():
         ax.annotate(f"{row['v']:.2f} ft", (row['t'], row['v']), textcoords="offset points", xytext=(0, 10), ha='center',
-                    fontsize=9)
+                     fontsize=9)
 
     # Plot markers for low tides
     ax.scatter(low_tides['t'], low_tides['v'], color='green', s=100, zorder=5, label='Low Tide')
     for _, row in low_tides.iterrows():
         ax.annotate(f"{row['v']:.2f} ft", (row['t'], row['v']), textcoords="offset points", xytext=(0, -15),
-                    ha='center', fontsize=9)
+                     ha='center', fontsize=9)
 
     # Set the title and labels
     ax.set_title(f'Tide Predictions for {station_name}', fontsize=20, pad=20)
